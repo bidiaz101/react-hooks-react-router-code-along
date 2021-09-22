@@ -1,12 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom"
+import NavBar from "./NavBar"
+import Home from "./Home"
+import About from "./About"
+import Login from "./Login"
 
-function Home() {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-}
-
-ReactDOM.render(<Home />, document.getElementById("root"));
+ReactDOM.render(
+  <BrowserRouter>
+    <NavBar />
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+    </Switch>
+  </BrowserRouter>, 
+  document.getElementById("root"));
